@@ -18,7 +18,7 @@ class PilotSeeder extends Seeder
                 -> each(function($pilot){
 
                 $car = Car::inRandomOrder() -> limit(3) -> get();
-                $pilot -> cars() -> attach($pilot);
+                $pilot -> cars() -> attach($car);
                 $pilot -> save();
         });
     }
