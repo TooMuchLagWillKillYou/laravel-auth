@@ -21,10 +21,23 @@ class CarController extends Controller
 
     public function update(Request $request, $id){
 
-        dd($request -> all(), $id);
+        // dd($request -> all(), $id);
 
-        // $valid = $request -> validate([
+        $valid = $request -> validate([
+            'name' => 'required|string|min:3',
+            'model' => 'required|string|min:3',
+            'kW' => 'required|integer|min:100|max:500'
+        ]);
+        $car = Car::findOrFail($id);
+        // dd($valid, $car);
+        $car -> update($valid);
 
-        // ]);
+        $brand = Brand::findOrFail($request -> brand_id);
+        $car -> brand() -> associate($brand);
+        $car -> save();
+
+        $car -> pilots() -> sync($request -> pilots_id);
+
+        return redirect() -> route('index');
     }
 }
