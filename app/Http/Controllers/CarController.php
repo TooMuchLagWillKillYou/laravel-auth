@@ -40,4 +40,14 @@ class CarController extends Controller
 
         return redirect() -> route('index');
     }
+
+    public function delete($id){
+
+        $car = Car::findOrFail($id);
+
+        $car -> deleted = true;
+        $car -> save();
+
+        return redirect() -> route('index');
+    }
 }
