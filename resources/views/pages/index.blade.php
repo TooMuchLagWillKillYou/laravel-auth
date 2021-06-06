@@ -3,6 +3,10 @@
 
     <div class="container">
 
+        <a href="{{ route('car.create') }}">
+            <button>Add new</button>
+        </a>
+
         <ul>
             @foreach ($cars as $car)
             <li>

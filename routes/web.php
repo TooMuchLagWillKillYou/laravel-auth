@@ -24,6 +24,9 @@ Route::post('/car/{id}', 'CarController@update') ->middleware('auth') -> name('c
 
 Route::get('/car/{id}', 'CarController@delete') ->middleware('auth') -> name('car.destroy');
 
+Route::get('/createCar', 'CarController@create') ->middleware('auth') -> name('car.create');
+Route::post('/car', 'CarController@store') ->middleware('auth') -> name('car.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
