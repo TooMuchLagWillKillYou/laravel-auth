@@ -68,9 +68,10 @@ class CarController extends Controller
 
         $car = Car::make($valid);
         $car -> brand() -> associate($brand);
-        // $car -> save();
-        $car -> pilots() -> attach($request -> get('pilot_id'));
         $car -> save();
+        $car -> pilots() -> attach($request -> get('pilots_id'));
+        $car -> save();
+        dd($car);
 
         return redirect() -> route('index');
     }
