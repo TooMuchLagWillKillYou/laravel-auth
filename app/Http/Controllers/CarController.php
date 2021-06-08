@@ -10,6 +10,7 @@ use App\Pilot;
 
 class CarController extends Controller
 {
+    
     public function edit($id){
 
         $car = Car::findOrFail($id);
@@ -26,13 +27,12 @@ class CarController extends Controller
             'model' => 'required|string|min:3',
             'kW' => 'required|integer|min:100|max:500'
         ]);
+        
         $car = Car::findOrFail($id);
         $car -> update($valid);
-
         $brand = Brand::findOrFail($request -> brand_id);
         $car -> brand() -> associate($brand);
         $car -> save();
-
         $car -> pilots() -> sync($request -> pilots_id);
 
         return redirect() -> route('index');
@@ -41,7 +41,6 @@ class CarController extends Controller
     public function delete($id){
 
         $car = Car::findOrFail($id);
-
         $car -> deleted = true;
         $car -> save();
 
@@ -64,14 +63,13 @@ class CarController extends Controller
             'model' => 'required|string|min:3',
             'kW' => 'required|integer|min:100|max:500'
         ]);
+        
         $brand = Brand::findOrFail($request -> get('brand_id'));
-
         $car = Car::make($valid);
         $car -> brand() -> associate($brand);
         $car -> save();
         $car -> pilots() -> attach($request -> get('pilots_id'));
         $car -> save();
-        dd($car);
 
         return redirect() -> route('index');
     }

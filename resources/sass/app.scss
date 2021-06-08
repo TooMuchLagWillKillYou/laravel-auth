@@ -6,3 +6,32 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body {
+
+    a.btn.btn-primary{
+
+        height: fit-content;
+    }
+
+    ul {
+
+        li.list-group-item {
+
+            background-color: $body-bg;
+
+            div {
+
+                * {
+
+                    margin-bottom: 0;
+                }
+            }
+            
+            &:hover {
+
+                background-color: #fff;
+            }
+        }
+    }
+}

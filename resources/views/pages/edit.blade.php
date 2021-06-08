@@ -7,24 +7,24 @@
             @csrf
             @method('POST')
     
-            <div class="input-form">
+            <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name" value="{{ $car -> name }}" required>
+                <input class="form-control" type="text" name="name" id="name" value="{{ $car -> name }}" required>
             </div>
     
-            <div class="input-form">
+            <div class="form-group">
                 <label for="model">Model</label>
-                <input type="text" name="model" id="model" value="{{ $car -> model }}" required>
+                <input class="form-control" type="text" name="model" id="model" value="{{ $car -> model }}" required>
             </div>
     
-            <div class="input-form">
+            <div class="form-group">
                 <label for="kW">kW</label>
-                <input type="text" name="kW" id="kW" value="{{ $car -> kW }}" required>
+                <input class="form-control" type="text" name="kW" id="kW" value="{{ $car -> kW }}" required>
             </div>
     
-            <div class="input-form">
+            <div class="form-group">
                 <label for="brand_id">Brand</label>
-                <select name="brand_id" id="brand_id" required>
+                <select class="form-control" name="brand_id" id="brand_id" required>
                     @foreach ($brands as $brand)
                         <option value="{{ $brand -> id }}" 
     
@@ -38,9 +38,9 @@
                 </select>
             </div>
     
-            <div class="input-form">
+            <div class="form-group">
                 <label for="pilots_id[]">Pilots</label>
-                <select name="pilots_id[]" id="pilots_id[]" required multiple>
+                <select class="form-control" name="pilots_id[]" id="pilots_id[]" required multiple>
                     @foreach ($pilots as $pilot)
                         <option value="{{ $pilot -> id }}"
         
@@ -56,7 +56,7 @@
                 </select>
             </div>
     
-            <button type="submit">Submit</button> 
+            <button type="submit" class="btn btn-primary mt-4">Submit</button> 
         </form>
         
     </div>

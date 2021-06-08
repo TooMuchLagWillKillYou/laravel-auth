@@ -10,7 +10,6 @@ class MyController extends Controller
 {
     public function index(){
 
-        // $cars = Car::all();
         $cars = Car::where('deleted', false) -> get();
 
         return view('pages.index', compact('cars'));

@@ -10942,3 +10942,21 @@ a.text-dark:focus {
   }
 }
 
+body a.btn.btn-primary {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+body ul li.list-group-item {
+  background-color: #f8fafc;
+}
+
+body ul li.list-group-item div * {
+  margin-bottom: 0;
+}
+
+body ul li.list-group-item:hover {
+  background-color: #fff;
+}
+

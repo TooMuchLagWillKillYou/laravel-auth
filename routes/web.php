@@ -13,21 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', 'MyController@index') -> name('index');
 
-Route::get('/car/{id}/edit', 'CarController@edit') ->middleware('auth') -> name('car.edit');
-Route::post('/car/{id}', 'CarController@update') ->middleware('auth') -> name('car.update');
+Route::get('/car/create', 'CarController@create') -> middleware('auth') -> name('car.create');
+Route::post('/car', 'CarController@store') -> middleware('auth') -> name('car.store');
 
-Route::get('/car/{id}', 'CarController@delete') ->middleware('auth') -> name('car.destroy');
+Route::get('/car/{id}/edit', 'CarController@edit') -> middleware('auth') -> name('car.edit');
+Route::post('/car/{id}', 'CarController@update') -> middleware('auth') -> name('car.update');
 
-Route::get('/createCar', 'CarController@create') ->middleware('auth') -> name('car.create');
-Route::post('/car', 'CarController@store') ->middleware('auth') -> name('car.store');
+Route::get('/car/{id}', 'CarController@delete') -> middleware('auth') -> name('car.destroy');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
  
